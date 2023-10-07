@@ -1,7 +1,18 @@
 import React from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Users from "./user/pages/Users";
+import NewPlace from "./places/pages/NewPlace";
 
-function App() {
-  return <h1>Let's start!</h1>;
-}
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Users />} exact />
+        <Route path="/places/new" element={<NewPlace />} exact />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
