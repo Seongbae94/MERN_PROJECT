@@ -3,6 +3,8 @@ import "./PlaceItem.css";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import Modal from "../../shared/components/UIElements/Modal";
+import Map from "../../shared/components/UIElements/Map";
+import Hi from "./Hi";
 
 const PlaceItem = ({
   id,
@@ -22,6 +24,8 @@ const PlaceItem = ({
     setShowMap(false);
   };
 
+  console.log(coordinates);
+
   return (
     <>
       <Modal
@@ -33,7 +37,8 @@ const PlaceItem = ({
         footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       >
         <div className="map-container">
-          <h2>THE MAP!</h2>
+          <Map center={coordinates} zoom={16} />
+          {/* <Hi hihi={"hihi"} /> */}
         </div>
       </Modal>
       <li className="place-item">

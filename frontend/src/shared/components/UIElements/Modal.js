@@ -4,6 +4,7 @@ import Backdrop from "./Backdrop";
 
 import { CSSTransition } from "react-transition-group";
 import "./Modal.css";
+import Map from "./Map";
 
 const ModalOverlay = ({
   className,
