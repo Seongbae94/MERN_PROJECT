@@ -1,30 +1,26 @@
 import React, { useEffect, useRef } from "react";
-// import Map from "ol/Map.js";
-// import View from "ol/View.js";
-// import TileLayer from "ol/layer/Tile.js";
-// import OSM from "ol/source/OSM.js";
-
 import "./Map.css";
 
 const Map = (props) => {
   const mapRef = useRef();
 
   const { center, zoom } = props;
-  console.log(props);
 
   useEffect(() => {
-    new window.ol.Map({
-      target: mapRef.current.id,
-      layers: [
-        new window.ol.layer.Tile({
-          source: new window.ol.source.OSM(),
-        }),
-      ],
-      view: new window.ol.View({
-        center: window.ol.proj.fromLonLat([center.lng, center.lat]),
+    let map;
+    async function initMap() {
+      //@ts-ignore
+      const { Map } = await window.google.maps.importLibrary("maps");
+
+      map = new Map(mapRef.current, {
+        center: center,
         zoom: zoom,
-      }),
-    });
+      });
+
+      new window.google.maps.Marker({ position: center, map: map });
+    }
+
+    initMap();
   }, [center, zoom]);
 
   return (
@@ -32,7 +28,6 @@ const Map = (props) => {
       ref={mapRef}
       className={`map ${props.className}`}
       style={props.style}
-      id="map"
     ></div>
   );
 };
