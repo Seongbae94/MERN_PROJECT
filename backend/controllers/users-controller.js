@@ -35,7 +35,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
 
   let existingUser;
   try {
@@ -62,7 +62,7 @@ const signup = async (req, res, next) => {
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkK6f-QjGNRwvk1uJsObZYZqFIJObQAtKitPdRGJ-eohxoYRUorKNlbSh_x37zH0SW9Y8&usqp=CAU",
     password,
-    places,
+    places: [],
   });
 
   try {
