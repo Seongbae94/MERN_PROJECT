@@ -14,8 +14,6 @@ const Users = () => {
       try {
         const response = await fetch("http://localhost:5000/api/users");
         const responseData = await response.json();
-
-        console.log(responseData);
         if (!response.ok) {
           throw new Error(responseData.message);
         }
