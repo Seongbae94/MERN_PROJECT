@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import Card from "../../shared/components/UIElements/Card";
+import Button from "../../shared/components/FormElements/Button";
 
 const UserPlaces = () => {
-  const [loadedPlaces, setLoadedPlaces] = useState();
+  const [loadedPlaces, setLoadedPlaces] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const { userId } = useParams();
 
@@ -28,6 +30,17 @@ const UserPlaces = () => {
       prevPlaces.filter((place) => place.id !== deletedPlaceId)
     );
   };
+
+  if (loadedPlaces.length === 0) {
+    return (
+      <div className="place-list center">
+        <Card>
+          <h2>No places found. Maybe create one?</h2>
+          <Button to="/places/new">Share Place</Button>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <>
