@@ -69,7 +69,6 @@ const Auth = () => {
             "Content-Type": "application/json",
           }
         );
-        console.log(responseData);
         auth.login(responseData.user.id);
       } catch (err) {} //err is handled in http-hook, so it is ok to be empty.
     } else {
@@ -126,8 +125,8 @@ const Auth = () => {
             id="password"
             type="password"
             label="password"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid password (at least 5 characters)."
+            validators={[VALIDATOR_MINLENGTH(6)]}
+            errorText="Please enter a valid password (at least 6 characters)."
             onInput={inputHandler}
           />
           <Button type="submit" disabled={!formState.isValid}>
