@@ -92,7 +92,7 @@ const PlaceItem = ({
           <div className="place-item__info">
             <h2>{title}</h2>
             <h3>{address}</h3>
-            <h4>{description}</h4>
+            <p>{description}</p>
           </div>
           <div className="place-item__actions">
             <Button inverse onClick={openMapHandler}>
