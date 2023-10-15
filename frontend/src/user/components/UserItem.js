@@ -4,7 +4,7 @@ import Avatar from "../../shared/components/UIElements/Avatar";
 import { Link } from "react-router-dom";
 import Card from "../../shared/components/UIElements/Card";
 
-export const UserItem = ({ id, image, name, placeCount }) => {
+export default function UserItem({ id, image, name, placeCount }) {
   return (
     <li className="user-item">
       <Card className="user-item__content">
@@ -22,4 +22,4 @@ export const UserItem = ({ id, image, name, placeCount }) => {
       </Card>
     </li>
   );
-};
+}

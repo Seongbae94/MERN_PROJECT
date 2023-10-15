@@ -1,9 +1,9 @@
 import React from "react";
 import "./UsersList.css";
-import { UserItem } from "./UserItem";
+import UserItem from "./UserItem";
 import Card from "../../shared/components/UIElements/Card";
 
-export const UsersList = ({ items }) => {
+export default function UsersList({ items }) {
   if (items.length === 0) {
     return (
       <div className="center">
@@ -29,4 +29,4 @@ export const UsersList = ({ items }) => {
       })}
     </ul>
   );
-};
+}
