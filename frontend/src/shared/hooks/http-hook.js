@@ -13,7 +13,6 @@ export const useHttpClient = () => {
       //dont wanna change UI(different page) when changing data
       const httpAbortCtrl = new AbortController();
       activeHttpRequests.current.push(httpAbortCtrl);
-
       try {
         const response = await fetch(url, {
           method,

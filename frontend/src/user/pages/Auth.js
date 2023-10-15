@@ -58,7 +58,7 @@ const Auth = () => {
     if (isLoginMode) {
       //login
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           "http://localhost:5000/api/users/login",
           "POST",
           JSON.stringify({
@@ -69,12 +69,13 @@ const Auth = () => {
             "Content-Type": "application/json",
           }
         );
-        auth.login();
+        console.log(responseData);
+        auth.login(responseData.user.id);
       } catch (err) {} //err is handled in http-hook, so it is ok to be empty.
     } else {
       //signup
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
           JSON.stringify({
@@ -87,7 +88,7 @@ const Auth = () => {
           }
         );
 
-        auth.login();
+        auth.login(responseData.user.id);
       } catch (err) {}
     }
   };
