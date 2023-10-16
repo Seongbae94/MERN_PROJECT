@@ -41,6 +41,7 @@ const NewPlace = () => {
   );
   const navigate = useNavigate();
 
+  console.log(auth);
   const placeSubmitHandler = async (e) => {
     e.preventDefault();
 
@@ -52,7 +53,9 @@ const NewPlace = () => {
       formData.append("creator", auth.userId);
       formData.append("image", formState.inputs.image.value);
 
-      await sendRequest("http://localhost:5000/api/places", "POST", formData);
+      await sendRequest("http://localhost:5000/api/places", "POST", formData, {
+        Authorization: `Bearer ${auth.token}`,
+      });
 
       navigate("/");
       //redirect the user to a diff page.
