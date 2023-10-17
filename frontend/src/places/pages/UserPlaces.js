@@ -35,8 +35,8 @@ const UserPlaces = () => {
     return (
       <div className="place-list center">
         <Card>
-          <h2>No places found. Maybe create one?</h2>
-          <Button to="/places/new">Share Place</Button>
+          <h2>No places found for this user.</h2>
+          {/* <Button to="/places/new">Share Place</Button> */}
         </Card>
       </div>
     );
