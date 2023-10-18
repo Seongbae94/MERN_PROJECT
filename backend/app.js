@@ -53,7 +53,7 @@ app.use((error, req, res, next) => {
 //(without database, server is useless, so throw error)
 mongoose
   .connect(
-    "mongodb+srv://sbl2:qwe123@cluster0.bsz1jkc.mongodb.net/mern?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.bsz1jkc.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(5000);
